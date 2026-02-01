@@ -1,0 +1,408 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+}
+
+.admin-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.login-btn, .logout-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.colleges-section h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Colleges Grid */
+.colleges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.college-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.college-card:hover {
+  transform: translateY(-5px);
+}
+
+.college-card h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.enquire-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.enquire-btn:hover {
+  background-color: #219653;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.modal h3 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.modal form input,
+.modal form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+  color: white;
+}
+
+/* Admin Panel */
+.admin-panel {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.admin-panel h2 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.enquiries-table {
+  overflow-x: auto;
+}
+
+.enquiries-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.enquiries-table th {
+  background-color: #34495e;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+}
+
+.enquiries-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.enquiries-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .colleges-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+}
+/* Add these styles to your existing App.css */
+
+/* Admin Tabs */
+.admin-tabs {
+  background-color: #34495e;
+  padding: 0 2rem;
+  display: flex;
+  gap: 1px;
+}
+
+.tab-btn {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: #3498db;
+}
+
+.tab-btn.active {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Admin Actions */
+.admin-actions {
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.add-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #219653;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Manage Section */
+.manage-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.manage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.manage-table th {
+  background-color: #34495e;
+  color: white;
+  padding: 1rem;
+  text-align: left;
+}
+
+.manage-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.manage-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.description-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Filter Section */
+.filter-section {
+  background-color: #ecf0f1;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter-select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #bdc3c7;
+  min-width: 200px;
+}
+
+.filter-count {
+  margin-left: auto;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* No Data Message */
+.no-data {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/* Enquiries Section */
+.enquiries-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Modal Textarea */
+.modal textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+}
